@@ -36,9 +36,9 @@ alert( arr.length ); // 3
 
 所以，應該使用特殊的方法。
 
-The [arr.splice(start)](mdn:js/Array/splice) method is a swiss army knife for arrays. It can do everything: insert, remove and replace elements.
+[arr.splice(start)](mdn:js/Array/splice) 方法是一把陣列的瑞士刀。他可以做任何事情：插入、移除和替換元素。
 
-The syntax is:
+其語法為:
 
 ```js
 arr.splice(index[, deleteCount, elem1, ..., elemN])
