@@ -1,40 +1,40 @@
-# Array methods
+# 陣列方法（Array methods）
 
-Arrays provide a lot of methods. To make things easier, in this chapter they are split into groups.
+陣列提供許多方法。為了讓資訊更清楚，在此章節我們將它們分組說明。
 
-## Add/remove items
+## 新增/移除項目
 
-We already know methods that add and remove items from the beginning or the end:
+我們已經知道將項目從陣列開頭與尾段新增與移除的方法：
 
-- `arr.push(...items)` -- adds items to the end,
-- `arr.pop()` -- extracts an item from the end,
-- `arr.shift()` -- extracts an item from the beginning,
-- `arr.unshift(...items)` -- adds items to the beginning.
+- `arr.push(...items)` -- 將 items 加入陣列尾段。
+- `arr.pop()` -- 講 item 從尾段取出。
+- `arr.shift()` -- 將 item 從開頭取出。
+- `arr.unshift(...items)` -- 將 items 從開頭加入。
 
-Here are a few others.
+這裏是其他的一些方法。
 
 ### splice
 
-How to delete an element from the array?
+如何從陣列中刪除一個元素？
 
-The arrays are objects, so we can try to use `delete`:
+陣列也是物件，所以我們可以試著使用 `delete`：
 
 ```js run
 let arr = ["I", "go", "home"];
 
-delete arr[1]; // remove "go"
+delete arr[1]; // 移除 "go"
 
 alert( arr[1] ); // undefined
 
-// now arr = ["I",  , "home"];
+// 現在 arr = ["I",  , "home"];
 alert( arr.length ); // 3
 ```
 
-The element was removed, but the array still has 3 elements, we can see that `arr.length == 3`.
+元素被移除了，但陣列裡還是有三個元素，我們可以從 `arr.length == 3` 看到。
 
-That's natural, because `delete obj.key` removes a value by the `key`. It's all it does. Fine for objects. But for arrays we usually want the rest of elements to shift and occupy the freed place. We expect to have a shorter array now.
+這很自然，因為 `delete obj.key` 根據 `key` 移除一個值。這就是他所做的一切操作。對物件來說沒問題。但對陣列來說，我們通常想要剩下的元素能被挪移並取代空出來的空間。我們會預期取得一個較短的陣列。
 
-So, special methods should be used.
+所以，應該使用特殊的方法。
 
 The [arr.splice(start)](mdn:js/Array/splice) method is a swiss army knife for arrays. It can do everything: insert, remove and replace elements.
 
